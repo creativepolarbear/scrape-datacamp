@@ -22,7 +22,7 @@ Rscript -e "rmd2jupyter::rmd2jupyter('notebook.Rmd')"
 # Convert Jupyter Notebook to Python script
 
 ``` sh
-jupytext --to py notebook.ipynb             
+jupytext --to py notebook.ipynb   
 ```
 
 # Style
