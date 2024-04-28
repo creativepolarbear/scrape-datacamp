@@ -1,3 +1,4 @@
 .deb
 scrape.html
 .venv
+.mypy_cache
