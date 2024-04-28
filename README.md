@@ -1,7 +1,12 @@
-# Scrape HTML and convert to Rmarkdown
+# Scrape HTML 
 ``` sh
 Rscript -e "install.packages(c('tidyverse', 'rvest', 'remotes'))"
 Rscript scrape.R
+```
+
+# Convert HTML to Rmarkdown
+
+``` sh
 pandoc --from html-native_divs-native_spans scrape.html --to gfm -o notebook.Rmd --no-highlight
 ```
 
