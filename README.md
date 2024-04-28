@@ -25,6 +25,12 @@ Rscript -e "rmd2jupyter::rmd2jupyter('notebook.Rmd')"
 jupytext --to py notebook.ipynb   
 ```
 
+# Remove comments
+
+``` sh
+sed -i -e '/# -/,/# +/d' chatgpt-prompt-engineering-for-developers/notebook.py
+```
+
 # Style
 
 ``` sh
