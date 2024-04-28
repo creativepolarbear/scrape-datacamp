@@ -59,3 +59,27 @@ def get_response(prompt):
 # Test the function with your prompt
 response = get_response("Write a poem about ChatGPT")
 print(response)
+
+# -
+
+# ## Exploring prompt engineering
+#
+# Prompt engineering refers to crafting effective prompts to elicit
+# desired responses from the language model. By refining your prompts, you
+# can achieve better results and guide the model towards generating more
+# accurate and useful responses. Your task in this exercise is to modify
+# the prompt you used in the previous exercise.
+#
+# The `OpenAI` package and the `get_response()` function have been
+# pre-loaded for you.
+#
+# **Instructions**
+#
+# - Set your API key to `api_key` within the `OpenAI()` class.
+# - Craft a `prompt` that asks the model to generate a poem about ChatGPT
+#   while ensuring that it is written in basic English that a child can
+#   understand.
+# - Get the `response` using the `get_response()` function.
+#
+# **Answer**
+#
