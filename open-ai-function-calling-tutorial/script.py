@@ -5,7 +5,7 @@ client = OpenAI(
     api_key=os.environ['OPENAI_API_KEY'],
 )
 
-student_1_description = "David Nguyen is a sophomore majoring in computer science at Stanford University. He is Asian American and has a 3.8 GPA. David is known for his programming skills and is an active member of the university's Robotics Club. He hopes to pursue a career in artificial intelligence after graduating." OpenAIWas this helpful? Yes No
+student_1_description = "David Nguyen is a sophomore majoring in computer science at Stanford University. He is Asian American and has a 3.8 GPA. David is known for his programming skills and is an active member of the university's Robotics Club. He hopes to pursue a career in artificial intelligence after graduating."
 
 
 # Generating response back from gpt-3.5-turbo
@@ -16,7 +16,7 @@ openai_response = client.chat.completions.create(
 
 openai_response.choices[0].message.content
 
-'{\n  "name": "David Nguyen",\n  "major": "computer science",\n  "school": "Stanford University",\n  "grades": "3.8 GPA",\n  "club": "Robotics Club"\n}' OpenAIWas this helpful? Yes No
+'{\n  "name": "David Nguyen",\n  "major": "computer science",\n  "school": "Stanford University",\n  "grades": "3.8 GPA",\n  "club": "Robotics Club"\n}'
 
 
 import json
@@ -25,7 +25,7 @@ import json
 json_response = json.loads(openai_response.choices[0].message.content)
 json_response
 
-student_2_description="Ravi Patel is a sophomore majoring in computer science at the University of Michigan. He is South Asian Indian American and has a 3.7 GPA. Ravi is an active member of the university's Chess Club and the South Asian Student Association. He hopes to pursue a career in software engineering after graduating." OpenAIWas this helpful? Yes No
+student_2_description="Ravi Patel is a sophomore majoring in computer science at the University of Michigan. He is South Asian Indian American and has a 3.7 GPA. Ravi is an active member of the university's Chess Club and the South Asian Student Association. He hopes to pursue a career in software engineering after graduating."
 
 
 # Generating response back from gpt-3.5-turbo

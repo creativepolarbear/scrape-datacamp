@@ -80,7 +80,7 @@ We will write a random student description. Either you can come up with
 your own text or use ChatGPT to generate one for you.
 
 ```{python}
-student_1_description = "David Nguyen is a sophomore majoring in computer science at Stanford University. He is Asian American and has a 3.8 GPA. David is known for his programming skills and is an active member of the university's Robotics Club. He hopes to pursue a career in artificial intelligence after graduating." OpenAIWas this helpful? Yes No
+student_1_description = "David Nguyen is a sophomore majoring in computer science at Stanford University. He is Asian American and has a 3.8 GPA. David is known for his programming skills and is an active member of the university's Robotics Club. He hopes to pursue a career in artificial intelligence after graduating."
 ```
 
 In the next part, we will write a prompt to extract student information
@@ -100,7 +100,7 @@ club
 
 This is the body of text to extract the information from:
 {student_1_description}
-''' OpenAIWas this helpful? Yes No
+'''
 ```
 
 Add the prompt to the OpenAI API chat completion module to generate the
@@ -120,7 +120,7 @@ The response is quite good. Let’s convert it into JSON to understand it
 better.
 
 ```{python}
-'{\n  "name": "David Nguyen",\n  "major": "computer science",\n  "school": "Stanford University",\n  "grades": "3.8 GPA",\n  "club": "Robotics Club"\n}' OpenAIWas this helpful? Yes No
+'{\n  "name": "David Nguyen",\n  "major": "computer science",\n  "school": "Stanford University",\n  "grades": "3.8 GPA",\n  "club": "Robotics Club"\n}'
 ```
 
 We will use the \`json\` library to convert the text into a JSON object.
@@ -148,7 +148,7 @@ Calling?
 Let’s try the same prompt, but using a different student description.
 
 ```{python}
-student_2_description="Ravi Patel is a sophomore majoring in computer science at the University of Michigan. He is South Asian Indian American and has a 3.7 GPA. Ravi is an active member of the university's Chess Club and the South Asian Student Association. He hopes to pursue a career in software engineering after graduating." OpenAIWas this helpful? Yes No
+student_2_description="Ravi Patel is a sophomore majoring in computer science at the University of Michigan. He is South Asian Indian American and has a 3.7 GPA. Ravi is an active member of the university's Chess Club and the South Asian Student Association. He hopes to pursue a career in software engineering after graduating."
 ```
 
 We will just change the student description text in the prompt.
@@ -165,7 +165,7 @@ club
 
 This is the body of text to extract the information from:
 {student_2_description}
-''' OpenAIWas this helpful? Yes No
+'''
 ```
 
 And, run the chat completion function using the second prompt.
@@ -246,7 +246,7 @@ student_custom_functions = [
     }
     }
     }
-] OpenAIWas this helpful? Yes No
+]
 ```
 
 Next, we will generate responses for two student descriptions using a
