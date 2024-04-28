@@ -211,12 +211,12 @@ called Function Calling. It is essential to create a custom function to
 add necessary information to a list of dictionaries so that the OpenAI
 API can understand its functionality.
 
-- **name**: write the Python function name that you have recently
-  created.
-- **description**: the functionality of the function.
-- **parameters**: within the “properties”, we will write the name of the
-  arguments, type, and description. It will help OpenAI API to identify
-  the world that we are looking for.
+-   **name**: write the Python function name that you have recently
+    created.
+-   **description**: the functionality of the function.
+-   **parameters**: within the “properties”, we will write the name of
+    the arguments, type, and description. It will help OpenAI API to
+    identify the world that we are looking for.
 
 **Note**: Make sure you are following the correct pattern. Learn more
 about function calling by reading the official
@@ -479,13 +479,13 @@ descriptions = [
         print(response_message)
 ```
 
-- **Sample#1**: The GPT model has selected “extract_student_info,” and
-  we got a short summary about the student.
-- **Sample#2**: The GPT model has not selected any function and treated
-  the prompt as a regular question, and as a result, we got the
-  biography of Abraham Lincoln.
-- **Sample#3**: The GPT model has selected “extract_school_info,” and we
-  got a short summary about Stanford University.
+-   **Sample#1**: The GPT model has selected “extract_student_info,” and
+    we got a short summary about the student.
+-   **Sample#2**: The GPT model has not selected any function and
+    treated the prompt as a regular question, and as a result, we got
+    the biography of Abraham Lincoln.
+-   **Sample#3**: The GPT model has selected “extract_school_info,” and
+    we got a short summary about Stanford University.
 
 ``` language-python
 Sample#1
