@@ -28,7 +28,7 @@ jupytext --to py notebook.ipynb
 # Remove comments
 
 ``` sh
-sed -i -e '/# -/,/# +/d' chatgpt-prompt-engineering-for-developers/notebook.py
+sed -i -e '/# -/,/# +/d' notebook.py
 ```
 
 # Style
