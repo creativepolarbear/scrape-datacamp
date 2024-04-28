@@ -26,6 +26,10 @@ The `OpenAI` package has been pre-loaded for you.
 
 **Answer**
 
+```{python}
+
+```
+
 # Exploring prompt engineering
 
 Prompt engineering refers to crafting effective prompts to elicit
@@ -47,6 +51,10 @@ pre-loaded for you.
 
 **Answer**
 
+```{python}
+
+```
+
 # Using delimited prompts with f-strings
 
 You are a junior developer at a dynamic startup that generates content
@@ -67,6 +75,10 @@ variable have been pre-loaded for you.
 
 **Answer**
 
+```{python}
+
+```
+
 # Building specific and precise prompts
 
 In the previous exercise, you generated text that completes a given
@@ -86,6 +98,10 @@ The `OpenAI` package, the `get_response()` function, and the same
   and delimit the `story` with triple backticks.
 
 **Answer**
+
+```{python}
+
+```
 
 # Generating a table
 
@@ -108,6 +124,10 @@ pre-loaded for you.
 - Get the response.
 
 **Answer**
+
+```{python}
+
+```
 
 # Customizing output format
 
@@ -135,6 +155,10 @@ variable have been pre-loaded for you.
   `text` to use.
 
 **Answer**
+
+```{python}
+
+```
 
 # Using conditional prompts
 
@@ -165,6 +189,10 @@ The `OpenAI` package, the `get_response()` function, and the sample
 
 **Answer**
 
+```{python}
+
+```
+
 # Controlling output structure
 
 One way to control the output structure provided by a language model is
@@ -186,6 +214,10 @@ pre-loaded for you.
   `{3, 5, 11, 12, 16}`.
 
 **Answer**
+
+```{python}
+
+```
 
 # Sentiment analysis with few-shot prompting
 
@@ -215,6 +247,10 @@ The `OpenAI` package has been pre-loaded for you.
 
 **Answer**
 
+```{python}
+
+```
+
 # Single-step prompt to plan a trip
 
 Imagine you're a developer taking a break and planning a beach vacation.
@@ -235,6 +271,10 @@ parameter to help this exercise run faster.
   beach vacation.
 
 **Answer**
+
+```{python}
+
+```
 
 # Multi-step prompt to plan a trip
 
@@ -260,6 +300,10 @@ parameter to help this exercise run faster.
 
 **Answer**
 
+```{python}
+
+```
+
 # Analyze solution correctness
 
 You're back from your relaxing vacation and you've been assigned the
@@ -283,6 +327,10 @@ pre-loaded for you.
 
 **Answer**
 
+```{python}
+
+```
+
 # Reasoning with chain-of-thought prompts
 
 Chain-of-thought prompting is helpful to explain the reasoning behind
@@ -303,6 +351,10 @@ pre-loaded for you.
   your friend is 20.
 
 **Answer**
+
+```{python}
+
+```
 
 # One-shot chain-of-thought prompts
 
@@ -329,6 +381,10 @@ pre-loaded for you.
 - Create the final prompt.
 
 **Answer**
+
+```{python}
+
+```
 
 # Self-consistency prompts
 
@@ -358,6 +414,10 @@ parameter to help this exercise run faster.
 
 **Answer**
 
+```{python}
+
+```
+
 # Iterative prompt engineering for standard prompts
 
 You are a developer using prompt engineering techniques for your various
@@ -378,6 +438,10 @@ pre-loaded for you.
   listing the model name, release year, and owning company.
 
 **Answer**
+
+```{python}
+
+```
 
 # Iterative prompt engineering for few-shot prompts
 
@@ -406,6 +470,10 @@ pre-loaded for you.
 
 **Answer**
 
+```{python}
+
+```
+
 # Market research report summarization
 
 A market research firm needs to analyze and summarize lengthy reports on
@@ -428,6 +496,10 @@ function have been pre-loaded for you.
 
 **Answer**
 
+```{python}
+
+```
+
 # Product features summarization
 
 An electronics review website wants to provide concise and easy-to-read
@@ -447,6 +519,10 @@ The `OpenAI` package, the `product_description`, and the
   specifications.
 
 **Answer**
+
+```{python}
+
+```
 
 # Product description expansion
 
@@ -472,6 +548,10 @@ The `OpenAI` package, the `product_description` string, and the
 
 **Answer**
 
+```{python}
+
+```
+
 # Translation for multilingual communication
 
 A multinational company wants to expand its reach to more international
@@ -496,6 +576,10 @@ The `OpenAI` package, the `marketing_message` string, and the
 
 **Answer**
 
+```{python}
+
+```
+
 # Tone adjustment for email marketing
 
 An e-commerce company regularly conducts email marketing campaigns to
@@ -519,6 +603,10 @@ The `OpenAI` package, the `sample_email` string, and the
 
 **Answer**
 
+```{python}
+
+```
+
 # Writing improvement
 
 A popular online community relies on user-generated content to thrive.
@@ -541,6 +629,10 @@ The `OpenAI` package, the `text` string to operate on, and the
 
 **Answer**
 
+```{python}
+
+```
+
 # Customer support ticket routing
 
 A large customer support team receives many tickets related to different
@@ -562,6 +654,10 @@ function have been pre-loaded for you.
   in the response.
 
 **Answer**
+
+```{python}
+
+```
 
 # Customer support ticket analysis
 
@@ -590,6 +686,10 @@ ticket and entity variables previously mentioned.
 
 **Answer**
 
+```{python}
+
+```
+
 # Code generation with problem description
 
 You work as an analyst for a retail company and analyze monthly sales
@@ -611,6 +711,10 @@ pre-loaded for you.
   and, returns the month with the highest sales value as output.
 
 **Answer**
+
+```{python}
+
+```
 
 # Input-output examples for code generation
 
@@ -635,6 +739,10 @@ pre-loaded for you.
   maps the inputs to the outputs in the provided `examples`.
 
 **Answer**
+
+```{python}
+
+```
 
 # Modifying code with multi-step prompts
 
@@ -661,6 +769,10 @@ function have been pre-loaded for you.
 
 **Answer**
 
+```{python}
+
+```
+
 # Explaining code step by step
 
 As a financial analyst at a consulting firm, you're tasked with
@@ -680,6 +792,10 @@ function have been pre-loaded for you.
   provided `function`.
 
 **Answer**
+
+```{python}
+
+```
 
 # Creating a dual-prompt get_response() function
 
@@ -701,6 +817,10 @@ The `OpenAI` package has been pre-loaded for you.
   of your choice.
 
 **Answer**
+
+```{python}
+
+```
 
 # Customer support chatbot
 
@@ -726,6 +846,10 @@ pre-loaded for you.
   professional and user-friendly tone while interacting with customers.
 
 **Answer**
+
+```{python}
+
+```
 
 # Behavioral control of a customer support chatbot
 
@@ -761,6 +885,10 @@ pre-loaded for you.
 
 **Answer**
 
+```{python}
+
+```
+
 # Learning advisor chatbot
 
 You are developing a personalized learning advisor chatbot that
@@ -782,6 +910,10 @@ pre-loaded for you.
   provide the relevant textbook recommendations.
 
 **Answer**
+
+```{python}
+
+```
 
 # Adding guidelines for the learning advisor chatbot
 
@@ -807,6 +939,10 @@ pre-loaded for you.
 
 **Answer**
 
+```{python}
+
+```
+
 # Providing context through sample conversations
 
 Suppose there is a delivery service named **MyPersonalDelivery** that
@@ -831,6 +967,10 @@ strings have been pre-loaded for you.
 
 **Answer**
 
+```{python}
+
+```
+
 # Providing context through system prompt
 
 Now you want to use system prompts in order to provide context for the
@@ -852,3 +992,7 @@ pre-loaded for you.
 - Get the response using the `get_response()` function.
 
 **Answer**
+
+```{python}
+
+```
