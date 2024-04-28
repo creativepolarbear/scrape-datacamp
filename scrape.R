@@ -3,7 +3,7 @@ library(rvest)
 
 course_url <- paste0(
     "https://www.datacamp.com/courses/",
-    basename(getwd())
+    "chatgpt-prompt-engineering-for-developers"
 )
 
 exercises <- course_url %>%

@@ -1,717 +1,998 @@
-# Python modularity in the wild
+# Creating the get_response() function
 
-In the slides, we covered 3 ways that you can write modular code with
-Python: **packages**, **classes**, and **methods**. For reference, you
-can see the example code we reviewed below.
+Most of the exercises in this course will call the `chat.completions`
+endpoint of the OpenAI API with a user prompt. Here, you will create a
+`get_response()` function that receives a prompt as input and returns
+the response as an output. You will then use this function to generate a
+poem about ChatGPT. In future exercises, this function will be
+pre-loaded for you.
 
-    # Import the pandas PACKAGE
-    import pandas as pd
+Please note that DataCamp does not store keys used in the exercises.
 
-    # Create some example data
-    data = {'x': [1, 2, 3, 4], 
-            'y': [20.1, 62.5, 34.8, 42.7]}
+**Note**: Some exercises can take longer to run due to API calls and
+lengthy responses.
 
-    # Create a dataframe CLASS object
-    df = pd.DataFrame(data)
-
-    # Use the plot METHOD
-    df.plot('x', 'y')
-
-In this exercise, you'll utilize a **class** & a **method** from the
-popular **package** `numpy`.
+The `OpenAI` package has been pre-loaded for you.
 
 **Instructions**
 
-- Complete the `import` statement to load the `numpy` **package**.
-- Use `numpy`'s `array` **class** to define `arr`.
-- Use `arr`'s `sort` **method** to sort the `numpy` array.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Create a request to the `chat.completions` endpoint inside the
+  `get_response()` function.
+- Assign the `"user"` role and the content, the `prompt` parameter, for
+  the message to be sent within the `get_response()` function.
+- Try out the function with a prompt that asks the model to write a poem
+  about ChatGPT.
 
 **Answer**
 
-# Leveraging documentation
+```{python}
 
-When writing code for Data Science, it's inevitable that you'll need to
-install and use someone else's code. You'll quickly learn that using
-someone else's code is much more pleasant when they use good software
-engineering practices. In particular, good documentation makes the right
-way to call a function obvious. In this exercise you'll use python's
-`help()` method to view a function's documentation so you can determine
-how to correctly call a new method.
+```
 
-The list `words` has been loaded in your session.
+# Exploring prompt engineering
+
+Prompt engineering refers to crafting effective prompts to elicit
+desired responses from the language model. By refining your prompts, you
+can achieve better results and guide the model towards generating more
+accurate and useful responses. Your task in this exercise is to modify
+the prompt you used in the previous exercise.
+
+The `OpenAI` package and the `get_response()` function have been
+pre-loaded for you.
 
 **Instructions**
 
-- View the documentation of the `Counter.most_common` method using the
-  `help()` function. Note, you need to run the `import` statement before
-  completing this step.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Craft a `prompt` that asks the model to generate a poem about ChatGPT
+  while ensuring that it is written in basic English that a child can
+  understand.
+- Get the `response` using the `get_response()` function.
 
 **Answer**
 
-# Using pycodestyle
+```{python}
 
-We saw earlier that pycodestyle can be run from the command line to
-check a file for PEP 8 compliance. Sometimes it's useful to run this
-kind of check from a Python script.
+```
 
-In this exercise, you'll use `pycodestyle`'s `StyleGuide` class to check
-multiple files for PEP 8 compliance. Both files accomplish the same
-task, but they differ greatly in formatting and readability. You can
-view the contents of the files by following their links below.
+# Using delimited prompts with f-strings
+
+You are a junior developer at a dynamic startup that generates content
+with the help of AI. The company believes this technology can
+revolutionize storytelling, and you are excited to be a part of it.
+Today, your task is to generate a continuation of the provided `story`
+with a delimited prompt using an f-string.
+
+The `OpenAI` package, the `get_response()` function, and the `story`
+variable have been pre-loaded for you.
 
 **Instructions**
 
-- Import the `pycodestyle` package.
-- Create an instance of `StyleGuide` named `style_checker`.
-- There are two files that we'll be checking; they're named
-  [`'nay_pep8.py'`](https://assets.datacamp.com/production/repositories/3557/datasets/c7ac87a2c9614dfe34bfaf1d21fcab27c41ef6dc/nay_pep8.py)
-  and
-  [`'yay_pep8.py'`](https://assets.datacamp.com/production/repositories/3557/datasets/de962c1559a15ef9ef5a3d5da5ea7a02890fa3f1/yay_pep8.py).
-  Pass a list containing these file names to our `style_checker`'s
-  `check_files` method.
-- `print()` the results of our style check to the console. Make sure to
-  read the output!
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Create a prompt that completes the given `story` using an f-string,
+  delimiting the `story` with triple backticks.
+- Get the generated response.
 
 **Answer**
 
-# Conforming to PEP 8
+```{python}
 
-As we've covered, there are tools available to check if your code
-conforms to the PEP 8 guidelines. One possible way to stay compliant is
-to use an IDE that warns you when you accidentally stray from the style
-guide. Another way to check code is to use the `pycodestyle` package.
+```
 
-The results below show the output of running `pycodestyle` check against
-the code shown in your editor. The leading number in each line shows how
-many occurrences there were of that particular violation.
+# Building specific and precise prompts
 
-    my_script.py:2:2:  E225 missing whitespace around operator
-    my_script.py:2:7:  E231 missing whitespace after ','
-    my_script.py:2:9:  E231 missing whitespace after ','
-    my_script.py:5:7:  E201 whitespace after '('
-    my_script.py:5:11: E202 whitespace before ')'
+In the previous exercise, you generated text that completes a given
+`story`. Your team was happy with your achievement, however, they want
+you to follow specific guidelines when it comes to **length** and
+**style**. Your task now is to craft a more specific prompt that
+controls these aspects of the generated story.
+
+The `OpenAI` package, the `get_response()` function, and the same
+`story` variable have been pre-loaded for you.
 
 **Instructions**
 
-- Leverage the output of `pycodestyle` to edit the code to be compliant
-  with PEP 8.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Craft a prompt that completes the given `story` with **only two
+  paragraphs** in the style of **William Shakespeare**; use an f-string,
+  and delimit the `story` with triple backticks.
 
 **Answer**
 
-# PEP 8 in documentation
+```{python}
 
-So far we've focused on how PEP 8 affects functional pieces of code.
-There are also rules to help make comments and documentation more
-readable. In this exercise, you'll be fixing various types of comments
-to be PEP 8 compliant.
+```
 
-The result of a `pycodestyle` style check on the code can be seen below.
+# Generating a table
 
-    my_script.py:2:15: E261 at least two spaces before inline comment
-    my_script.py:5:16: E262 inline comment should start with '# '
-    my_script.py:11:1: E265 block comment should start with '# '
-    my_script.py:13:2: E114 indentation is not a multiple of four (comment)
-    my_script.py:13:2: E116 unexpected indentation (comment)
+Imagine you are a developer working for a renowned online bookstore
+known for its extensive collection of science fiction novels. Today, you
+have a task at hand: to create a **table** of ten must-read science
+fiction books for the website's homepage. This will enhance the user
+experience on the website, helping fellow sci-fi enthusiasts discover
+their next great read.
+
+The `OpenAI` package and the `get_response()` function have been
+pre-loaded for you.
 
 **Instructions**
 
-- Leverage the output of `pycodestyle` to edit the code's comments to be
-  compliant with PEP 8.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Craft a prompt that generates a **table** of **10 books**, with
+  columns for **Title**, **Author**, and **Year**, that you should read
+  given that you are a **sci-fi lover**.
+- Get the response.
 
 **Answer**
 
-# Naming packages
+```{python}
 
-We covered the PEP 8 guidelines for naming packages. In this exercise,
-you'll use that knowledge to identify a package following the
-requirements.
+```
 
-For additional reference, you can view the [PEP 8 section on package
-naming
-here](https://www.python.org/dev/peps/pep-0008/#package-and-module-name)
+# Customizing output format
+
+You work as a developer at a startup that offers a text analysis
+platform for content creators. Your platform helps users automatically
+categorize and format their content, saving them time and effort. Today,
+your task is to create a feature that detects the **language** of a
+given piece of `text` and generates a **suitable title** for that text
+in a **custom format**. You decide to craft a prompt that guides the
+language model through this.
+
+The `OpenAI` package, the `get_response()` function, and the `text`
+variable have been pre-loaded for you.
 
 **Instructions**
 
-- The possible package names to `import` are the following:
-  `text_analyzer`, `textAnalyzer`, `TextAnalyzer`, &
-  `__text_analyzer__`.
-- `import` the package from the list above that follows the PEP 8 naming
-  conventions.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Create the `instructions` for the prompt, asking the model to define
+  the **language** and generate a suitable **title** for a `text` that
+  will be provided using triple backtick delimiters.
+- Create the `output_format` with directions to include the text,
+  language, and title, each on a separate line, using 'Text:',
+  'Language:', and 'Title:' as prefixes for each line.
+- Create the `final_prompt` by combining all parts and the delimited
+  `text` to use.
 
 **Answer**
 
-# Recognizing packages
+```{python}
 
-The structure of your directory tree is printed below. You'll be working
-in the file `my_script.py` that you can see in the tree.
+```
 
-    recognizing_packages
-    ├── MY_PACKAGE
-    │&nbsp;&nbsp; └── _init_.py
-    ├── package
-    │&nbsp;&nbsp; └── __init__.py
-    ├── package_py
-    │&nbsp;&nbsp; └── __init__
-    │&nbsp;&nbsp;     └── __init__.py
-    ├── py_package
-    │&nbsp;&nbsp; └── __init__.py
-    ├── pyackage
-    │&nbsp;&nbsp; └── init.py
-    └── my_script.py
+# Using conditional prompts
+
+Building upon the previous task, your next challenge is to enhance the
+responses you received. When processing a given text, you need to
+determine its language, count the number of sentences, and generate a
+suitable title if the text contains more than one sentence. However,
+here's the new twist: if the text consists of only one sentence, no
+title should be generated, and instead, the model should display "N/A".
+This modification ensures that the title is generated only for texts
+with multiple sentences, providing a more refined and practical output
+for your platform's users.
+
+The `OpenAI` package, the `get_response()` function, and the sample
+`text` have been pre-loaded for you.
 
 **Instructions**
 
-- Use the information from the context to identify the packages in the
-  directory that follow the minimal structure.
-- `import` the two packages that follow the minimal package
-  requirements.
-- Use `help()` to print information about each imported package.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Create the `instructions`, with the directions to infer the
+  **language** and the **number of sentences** of the given delimited
+  `text`; then if the text contains more than one sentence, generate a
+  suitable **title** for it, otherwise, write **'N/A'** for the title.
+- Create the `output_format`, with directions to include the text,
+  language, number of sentences, and title, each on a separate line,and
+  ensure to use 'Text:', 'Language:', 'N_sentences:', and 'Title:' as
+  prefixes for each line.
 
 **Answer**
 
-# Adding functionality to your package
+```{python}
 
-Thanks to your work before, you already have a skeleton for your python
-package. In this exercise, you will work to define the functions needed
-for a text analysis of word usage.
+```
 
-In the file `counter_utils.py`, you will write 2 functions to be a part
-of your package: `plot_counter` and `sum_counters`. The structure of
-your package can be seen in the tree below. For the coding portions of
-this exercise, you will be working in the file `counter_utils.py`.
+# Controlling output structure
 
-    text_analyzer
-    ├── __init__.py
-    └── counter_utils.py
+One way to control the output structure provided by a language model is
+to give it a sample question-answer in the prompt. The model will learn
+from it and follow it when generating responses for similar questions.
+This exercise aims to let you build a one-shot prompt that extracts odd
+numbers from a given set of numbers and displays them as a set of
+numbers between brackets, separated by commas as shown in the
+instructions.
+
+The `OpenAI` package and the `get_response()` function have been
+pre-loaded for you.
 
 **Instructions**
 
-- Define `top_items` using `plot_counter`'s inputs.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Create a one-shot `prompt` that learns how to extract the odd numbers
+  from the set `{1, 3, 7, 12, 19}`, and seeks an answer for the set
+  `{3, 5, 11, 12, 16}`.
 
 **Answer**
 
-# Using your package's new functionality
+```{python}
 
-You've now created some great functionality for text analysis to your
-package. In this exercise, you'll leverage your package to analyze some
-tweets written by DataCamp & DataCamp users.
+```
 
-The object `word_counts` is loaded into your environment. It contains a
-list of `Counter` objects that contain word counts from a sample of
-DataCamp tweets.
+# Sentiment analysis with few-shot prompting
 
-The structure you've created can be seen in the tree below. You'll be
-working in `my_script.py`.
+Although sentiment analysis is possible with a language model's own
+knowledge, sometimes this task requires additional information to guide
+the model. In the context of market research, your goal in this exercise
+is to use few-shot prompting to perform sentiment analysis on customer
+reviews, assigning a number for a given text (-1: negative, 1:
+positive). The following examples should be provided as previous
+conversations for the model to learn from.
 
-    working_dir
-    ├── text_analyzer
-    │    ├── __init__.py
-    │    ├── counter_utils.py
-    └── my_script.py
+- The product quality exceeded my expectations -\> 1
+- I had a terrible experience with this product's customer service -\>
+  -1
+
+The `OpenAI` package has been pre-loaded for you.
 
 **Instructions**
 
-- `import` your `text_analyzer` at the top of the script.
-- Use the `sum_counters()` function from `text_analyzer` to aggregate
-  all the `Counter`s in `word_counts`.
-- Use the `plot_counter()` function from `text_analyzer` to visualize
-  the tweet's most used words while tweeting.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Provide the examples as previous conversations assigning the text as
+  `context` for the user role and the number as context for the
+  assistant role.
+- Provide the following text for the model to classify and use the
+  appropriate role:
+  `The price of the product is really fair given its features`.
 
 **Answer**
 
-# Writing requirements.txt
+```{python}
 
-We covered how having a `requirements.txt` file can help your package be
-more portable by allowing your users to easily recreate its intended
-environment. In this exercise, you will be writing the contents of a
-requirements file to a python variable.
+```
 
-*Note, in practice, the code you write in this exercise would be written
-to it's own `txt` file instead of a variable in your python session.*
+# Single-step prompt to plan a trip
+
+Imagine you're a developer taking a break and planning a beach vacation.
+You want to apply your prompting skills to plan the perfect trip. As an
+initial step, you decide to use a **standard single-step prompt** to
+seek assistance.
+
+The `OpenAI` package and the `get_response()` function have been
+pre-loaded for you.
+
+The `get_response()` function in this exercise employs the `max_tokens`
+parameter to help this exercise run faster.
 
 **Instructions**
 
-- Write the requirement for `matplotlib` with at least version `3.0.0`
-  or above.
-- Write the requirement for `numpy` version 1.15.4 exactly.
-- Write the requirement for `pandas` with at most version 0.22.0.
-- Write a non-version specific requirement for `pycodestyle`
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Create a single-step `prompt` asking the model to help you plan a
+  beach vacation.
 
 **Answer**
 
-# Creating setup.py
+```{python}
 
-In order to make your package installable by `pip` you need to create a
-`setup.py` file. In this exercise you will create this file for the
-`text_analyzer` package you've been building.
+```
+
+# Multi-step prompt to plan a trip
+
+You realized that the single-step prompt you built in the previous
+exercise was not effective, because the answer was too vague for what
+you had in mind. Now you will improve your prompt by explicitly
+specifying the steps to follow while helping you plan the trip. The plan
+should have **four potential locations** for your beach vacation, and
+each location should have some **accommodation options**, some
+**activities**, and an **evaluation of the pros and cons**.
+
+The `OpenAI` package and the `get_response()` function have been
+pre-loaded for you.
+
+The `get_response()` function in this exercise employs the `max_tokens`
+parameter to help this exercise run faster.
 
 **Instructions**
 
-- `import` the needed function, `setup`, from the `setuptools` package.
-- Complete the `name` & `packages` arguments; keep in mind your package
-  is located in a directory named `text_analyzer`.
-- List yourself as the `author`.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Create a multi-step `prompt` asking the model to help you plan a beach
+  vacation, according to the details mentioned.
 
 **Answer**
 
-# Listing requirements in setup.py
+```{python}
 
-We created a setup.py file earlier, but we forgot to list our dependency
-on `matplotlib` in the `install_requires` argument. In this exercise you
-will practice listing your version specific dependencies by correcting
-the `setup.py` you previously wrote for your `text_analyzer` package.
+```
+
+# Analyze solution correctness
+
+You're back from your relaxing vacation and you've been assigned the
+task of reviewing and correcting some programming tasks that your
+interns were working on during your absence. One of the tasks they were
+assigned is the calculation of the area of a shape. You are provided
+with a `code` string that contains a function designed to calculate the
+area of a rectangle, and need to assess its correctness. The ideal
+function for you is a function that has **correct syntax**, **receives
+two inputs**, and **returns one output**.
+
+The `OpenAI` package and the `get_response()` function have been
+pre-loaded for you.
 
 **Instructions**
 
-- `import` the needed function, `setup`, from the `setuptools` package.
-- List yourself as the `author`.
-- Specify your `install_requires` to require `matplotlib` version
-  `3.0.0` or above.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Create a multi-step `prompt` asking the model to assess the function
+  provided in the delimited `code` string according to your ideal
+  function criteria.
 
 **Answer**
 
-# Writing a class for your package
+```{python}
 
-We've covered how classes can be written in Python. In this exercise,
-you'll be creating the beginnings of a `Document` class that will be a
-foundation for text analysis in your package. Once the class is written
-you will modify your package's `__init__.py` file to make it easily
-accessible by your users.
+```
 
-Below is the structure of where you'll be working.
+# Reasoning with chain-of-thought prompts
 
-    working_dir
-    ├── text_analyzer
-    │    ├── __init__.py
-    │    ├── counter_utils.py
-    │    ├── document.py
-    └── my_script.py
+Chain-of-thought prompting is helpful to explain the reasoning behind
+the answer that the model is giving, especially in complex tasks such as
+generating the solution for a mathematical problem or a riddle. In this
+exercise, you will craft a chain-of-thought prompt to let the language
+model guess the age of your friend's father based on some information
+you will provide.
+
+The `OpenAI` package and the `get_response()` function have been
+pre-loaded for you.
 
 **Instructions**
 
-- You are working in `document.py`.
-- Finish the `def` statement that will create a new `Document` instance
-  when a user calls `Document()`.
-- Use your knowledge of PEP 8 conventions to complete the definition of
-  the newly named class method.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Create a chain-of-thought `prompt` to get the age of your friend's
+  father in 10 years, given that now he's double your friend's age, and
+  your friend is 20.
 
 **Answer**
 
-# Using your package's class
+```{python}
 
-You just wrote the beginnings of a `Document` class that you'll build
-upon to perform text analysis. In this exercise, you'll test out its
-current functionality of storing text.
+```
 
-Below is the document tree that you've built up so far when developing
-your package. You'll be working in `my_script.py`.
+# One-shot chain-of-thought prompts
 
-    working_dir
-    ├── text_analyzer
-    │    ├── __init__.py
-    │    ├── counter_utils.py
-    │    ├── document.py
-    └── my_script.py
+When you need to sum the even numbers within a given set, you first have
+to identify these even numbers and then sum them. You can teach this to
+a language model via one or more examples, and it will follow this
+strategy to operate on new sets.
+
+Your goal in this exercise is to teach the model how to apply this
+procedure on the following set: `{9, 10, 13, 4, 2}`, and then ask the
+model to perform it on a new set: `{15, 13, 82, 7, 14}`. This is how you
+perform chain-of-thought prompting through one-shot prompting.
+
+The `OpenAI` package and the `get_response()` function have been
+pre-loaded for you.
 
 **Instructions**
 
-- `import` your `text_analyzer` package.
-- Create an instance of `Document` with the `datacamp_tweet` variable
-  that's been loaded into your session.
-- Print the contents of the `text` attribute of your newly created
-  `Document` instance.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Define an `example` that teaches the model how to reason on the set
+  `{9, 10, 13, 4, 2}`.
+- Define a `question`, similar to the one in the `example`, that asks
+  the model to reason on a new set `{15, 13, 82, 7, 14}`.
+- Create the final prompt.
 
 **Answer**
 
-# Writing a non-public method
+```{python}
 
-In the lesson, we covered how to add functionality to classes using
-non-public methods. By defining methods as non-public you're signifying
-to the user that the method is only to be used inside the package.
+```
 
-In this exercise, you will define a non-public method that will be
-leveraged by your class to count words.
+# Self-consistency prompts
+
+Imagine you own a store that sells laptops and mobile phones. You start
+your day with 50 devices in the store, out of which 60% are mobile
+phones. Throughout the day, three clients visited the store, each of
+them bought one mobile phone, and one of them bought additionally a
+laptop. Also, you added to your collection 10 laptops and 5 mobile
+phones. How many laptops and mobile phones do you have by the end of the
+day? This problem is defined in the `problem_to_solve` string, and you
+will use a self-consistency prompt to solve it.
+
+The `OpenAI` package and the `get_response()` function have been
+pre-loaded for you.
+
+The `get_response()` function in this exercise employs the `max_tokens`
+parameter to help this exercise run faster.
 
 **Instructions**
 
-- `Counter` from `collections` has been loaded into your environment, as
-  well as the function `tokenize()`.
-- Add a method named `count_words` **as a non-public method**.
-- Give your non-public method the functionality to count the contents
-  `tokens` attribute using `Counter()`.
-- Utilize your new function in the `__init__` method.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Create the `self_consistency_instruction` that allows the model to
+  solve the problem with three experts and combine the results with a
+  majority vote.
+- Create the final `prompt` by combining the
+  `self_consistency_instruction` and the `problem_to_solve`.
 
 **Answer**
 
-# Using your class's functionality
+```{python}
 
-You've now added additional functionality to your `Document` class's
-`__init__` method that automatically processes text for your users. In
-this exercise, you'll act as one of those users to see the benefits of
-your hard work.
+```
 
-The `Document` class (copied below) has been loaded into your
-environment (complete with your new updates).
+# Iterative prompt engineering for standard prompts
 
-    class Document:
-      def __init__(self, text):
-        self.text = text
-        # pre tokenize the document with non-public tokenize method
-        self.tokens = self._tokenize()
-        # pre tokenize the document with non-public count_words
-        self.word_counts = self._count_words()
+You are a developer using prompt engineering techniques for your various
+tasks, and you want to carefully select the right language model. You
+wrote an initial `prompt` to know what are the top ten pre-trained
+language models out there. Now, your goal is to refine this prompt to
+generate a table presenting information on each model's name, **release
+year** and its **owning company**.
 
-      def _tokenize(self):
-        return tokenize(self.text)
-
-      # non-public method to tally document's word counts with Counter
-      def _count_words(self):
-        return Counter(self.tokens)
+The `OpenAI` package and the `get_response()` function have been
+pre-loaded for you.
 
 **Instructions**
 
-- Create a new `Document` instance from the `datacamp_tweets` data set
-  loaded into your environment. The `datacamp_tweets` object is a single
-  string containing hundreds of tweets written by DataCamp & DataCamp
-  users.
-- Print the first 5 `tokens` from `datacamp_doc`.
-- Print the top 5 most common words that were calculated by the
-  non-public `_count_words()` method automatically in the
-  `Document.__init__` method.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Iteratively refine the `prompt` to get the desired outcome, a table
+  having three columns for the top ten pre-trained language models
+  listing the model name, release year, and owning company.
 
 **Answer**
 
-# Using inheritance to create a class
+```{python}
 
-You've previously written a `Document` class for text analysis, but your
-NLP project will now have a focus on Social Media data. Your general
-`Document` class might be useful later so it's best not destroy it while
-your focus shifts to tweets.
+```
 
-Instead of copy-pasting the already written functionality, you will use
-the principles of 'DRY' and inheritance to quickly create your new
-`SocialMedia` class.
+# Iterative prompt engineering for few-shot prompts
+
+You are currently working on a project at your content creation company.
+The project's objective is to develop a text classification model
+capable of accurately identifying and categorizing different emotions in
+text, such as happiness, sadness, and fear. In cases where the text does
+not contain any discernible emotion, you aim for the model to respond
+with "no explicit emotion."
+
+You decided to use the provided few-shot `prompt`. However, you've
+noticed that "Time flies like an arrow" is being incorrectly classified
+as "surprise." Your objective now is to refine the `prompt` so that the
+model correctly classifies this particular example as "no explicit
+emotion."
+
+The `OpenAI` package and the `get_response()` function have been
+pre-loaded for you.
 
 **Instructions**
 
-- `Document` has been preloaded in the session.
-- Complete the `class` statement to create a `SocialMedia` class that
-  inherits from `Document`.
-- Define `SocialMedia`'s `__init__()` method that initializes a
-  `Document`.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Iteratively refine the `prompt`, by refining the examples, to get the
+  output **no explicit emotion** for the `"Time flies like an arrow"`
+  example.
 
 **Answer**
 
-# Adding functionality to a child class
+```{python}
 
-You've just written a `SocialMedia` class that inherits functionality
-from `Document`. As of now, the `SocialMedia` class doesn't have any
-functionality different from `Document`. In this exercise, you will
-build features into `SocialMedia` to specialize it for use with Social
-Media data.
+```
 
-For reference, the definition of `Document` can be seen below.
+# Market research report summarization
 
-    class Document:
-        # Initialize a new Document instance
-        def __init__(self, text):
-            self.text = text
-            # Pre tokenize the document with non-public tokenize method
-            self.tokens = self._tokenize()
-            # Pre tokenize the document with non-public count_words
-            self.word_counts = self._count_words()
+A market research firm needs to analyze and summarize lengthy reports on
+market trends and customer behavior. They want to know how AI and data
+privacy are shaping the market and how they're affecting customers. You
+are provided with a `report` string about markets trends and how they're
+affecting customer behavior. Your goal is to craft a prompt to summarize
+it while focusing on aspects related to AI and data privacy to see their
+effect on customers.
 
-        def _tokenize(self):
-            return tokenize(self.text)
-
-        # Non-public method to tally document's word counts
-        def _count_words(self):
-            # Use collections.Counter to count the document's tokens
-            return Counter(self.tokens)
+The `OpenAI` package, the `report` string, and the `get_response()`
+function have been pre-loaded for you.
 
 **Instructions**
 
-- The function `filter_word_counts()` has been loaded in your session.
-  Use `help()` to see its proper usage.
-- Finish the `_count_hashtags` method using `filter_word_counts()` so
-  that only words_counts starting with `#` remain.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Craft a prompt that summarizes the `report` in **maximum five
+  sentences**, while focusing on aspects related to **AI and data
+  privacy** using an f-string.
 
 **Answer**
 
-# Using your child class
+```{python}
 
-Thanks to the power of inheritance you were able to create a
-feature-rich, `SocialMedia` class based on its parent, `Document`. Let's
-see some of these features in action.
+```
 
-Below is the full definition of `SocialMedia` for reference.
-Additionally, `SocialMedia` has been added to `__init__.py` for ease of
-use.
+# Product features summarization
 
-    class SocialMedia(Document):
-        def __init__(self, text):
-            Document.__init__(self, text)
-            self.hashtag_counts = self._count_hashtags()
-            self.mention_counts = self._count_mentions()
+An electronics review website wants to provide concise and easy-to-read
+summaries of product features for its readers, allowing them to compare
+and evaluate different products quickly. The review website wants to
+generate bullet-point summaries. They want you to craft a prompt that
+summarizes a `product_description` for a smartphone.
 
-        def _count_hashtags(self):
-            # Filter attribute so only words starting with '#' remain
-            return filter_word_counts(self.word_counts, first_char='#')      
-
-        def _count_mentions(self):
-            # Filter attribute so only words starting with '@' remain
-            return filter_word_counts(self.word_counts, first_char='@')
+The `OpenAI` package, the `product_description`, and the
+`get_response()` function have been pre-loaded for you.
 
 **Instructions**
 
-- `import` your `text_analyzer` custom package.
-- Define `dc_tweets` as an instance of `SocialMedia` with the preloaded
-  `datacamp_tweets` object as the `text`.
-- `print` the `5` `most_common` mentioned users in the data using the
-  appropriate `dc_tweets` attribute.
-- Use `text_analyzer`'s `plot_counter()` method to plot the most used
-  hashtags in the data using the appropriate `dc_tweets` attribute.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Craft a prompt that summarizes the `product_description` in **no more
+  than five bullet points** while focusing on the product features and
+  specifications.
 
 **Answer**
 
-# Exploring with dir and help
+```{python}
 
-A new method has been added to the `Document` class. The method is a
-convenience wrapper around the `plot_counter()` function you wrote in an
-earlier exercise. In this exercise, you'll use `dir()` and `help()` to
-identify how to utilize the new method.
+```
+
+# Product description expansion
+
+As you continue your work on the electronics review website, you've come
+across some products that are already summarized but lack a
+comprehensive description on the product's main page. Your task now is
+to expand these concise product descriptions into detailed narratives,
+ensuring that each product has both a full description and a bulleted
+summary for easy comparison. The complete description should effectively
+capture the product's unique features, benefits, and potential
+applications. You will apply your prompt on a smart home security camera
+represented by its `product_description`.
+
+The `OpenAI` package, the `product_description` string, and the
+`get_response()` function have been pre-loaded for you.
 
 **Instructions**
 
-- `import` the `text_analyzer` package.
-- Define `my_doc` as an instance of `Document` with the text stored in
-  `datacamp_tweets`. `datacamp_tweets` has been pre-loaded in your
-  environment.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Craft a prompt that expands the `product_description` and writes a
+  **one paragraph** comprehensive overview capturing the key
+  information.
 
 **Answer**
 
-# Creating a grandchild class
+```{python}
 
-In this exercise you will be using inheritance to create a `Tweet` class
-from your `SocialMedia` class. This new grandchild class of `Document`
-will be able to tackle Twitter specific details such as retweets.
+```
+
+# Translation for multilingual communication
+
+A multinational company wants to expand its reach to more international
+markets. They need a language translation solution to convert their
+product descriptions and marketing materials into multiple languages.
+These will then be verified before being published.
+
+Your task is to design a prompt that translates text from one language
+to multiple other languages, facilitating effective communication with
+customers worldwide. You will apply your prompt on a provided
+`marketing_message` that introduces their latest collection of premium
+leather handbags.
+
+The `OpenAI` package, the `marketing_message` string, and the
+`get_response()` function have been pre-loaded for you.
 
 **Instructions**
 
-- Complete the `class` statement so that `Tweets` inherits from
-  `SocialMedia`. `SocialMedia` has already been loaded in your
-  environment.
-- Use `super()` to call the `__init__` method of the parent class.
-- Define `retweet_text`. Use `help()` to complete the call to
-  `filter_lines` with the correct parameter name. `filter_lines` has
-  already been loaded in your environment.
-- `return` `retweet_text` from `_process_retweets` as an instance of
-  `SocialMedia`.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Craft a prompt that translates the `marketing_message` from English to
+  French, Spanish, and Japanese.
 
 **Answer**
 
-# Using inherited methods
+```{python}
 
-You've now defined a `Tweets` class that's inherited methods from both
-`Document` and `SocialMedia`. In this exercise, you'll use inherited
-methods to visualize text from both tweets and retweets.
+```
 
-*Be aware that this is real data from Twitter and as such there is
-always a risk that it may contain profanity or other offensive content
-(in this exercise, and any following exercises that also use real
-Twitter data).*
+# Tone adjustment for email marketing
+
+An e-commerce company regularly conducts email marketing campaigns to
+promote its products, inform customers about new arrivals, and offer
+exclusive deals. The company has a hypothesis that their current
+strategy is too informal and they want to test out how tone adjustment
+to their emails could help boost customer engagement.
+
+Your task is to craft a prompt that can effectively transform the tone
+of marketing emails. You will apply your prompt on the `sample_email`
+provided.
+
+The `OpenAI` package, the `sample_email` string, and the
+`get_response()` function have been pre-loaded for you.
 
 **Instructions**
 
-- `import` your `text_analyzer` package.
-- Define `my_tweets` as an instance of `Tweets` using the
-  `datacamp_tweets` data that has been pre-loaded into your environment.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Craft a prompt that transforms the `sample_email` by changing its tone
+  to be professional, positive, and user-centric.
 
 **Answer**
 
-# Identifying good comments
+```{python}
 
-We learned about what characteristics make a 'good' comment. In this
-exercise, you'll apply this knowledge to identify a function that
-utilizes comment best practices.
+```
+
+# Writing improvement
+
+A popular online community relies on user-generated content to thrive.
+Users frequently contribute reviews, articles, and comments, but the
+quality of these contributions varies. To elevate the overall experience
+for its members, the community aims to enhance user-generated texts.
+This includes fixing grammar errors and refining writing tones to create
+a more polished and engaging environment for all users. Your task is to
+build a multi-step prompt that proofreads and adjusts the tone of a
+given `text`.
+
+The `OpenAI` package, the `text` string to operate on, and the
+`get_response()` function have been pre-loaded for you.
 
 **Instructions**
 
-- `print` the `text` variable that has been pre-loaded into your
-  environment.
-- `print` the result of calling the function with more useful commenting
-  on `text`.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Craft a multi-step prompt that proofreads the text without changing
+  its structure and adjusts its tone to be formal and friendly.
 
 **Answer**
 
-# Identifying proper docstrings
+```{python}
 
-We covered how to write fully-fledged docstrings. Before writing one of
-your own, this exercise will help you practice by having you identify a
-properly formatted docstring.
+```
 
-In this exercise, you'll be using the functions `goldilocks()`,
-`rapunzel()`, `mary()`, and `sleeping_beauty()` which have been loaded
-in your environment.
+# Customer support ticket routing
+
+A large customer support team receives many tickets related to different
+business areas, such as technical issues, billing inquiries, and product
+feedback. Your task is to create a prompt that automatically classifies
+incoming tickets into these three groups and routes them to the
+appropriate support specialists, reducing response times and enhancing
+customer satisfaction. You will test your prompt on a provided sample
+`ticket`.
+
+The `OpenAI` package, the `ticket` string, and the `get_response()`
+function have been pre-loaded for you.
 
 **Instructions**
 
-- Run `help()` on each of the 4 functions to view their docstrings.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Craft a prompt that classifies the `ticket` as technical issue,
+  billing inquiry, or product feedback, without providing anything else
+  in the response.
 
 **Answer**
 
-# Writing docstrings
+```{python}
 
-We just learned some about the benefits of docstrings. In this exercise,
-you will practice writing docstrings that can be utilized by a
-documentation generator like Sphinx.
+```
 
-Note that your docstring submission must match the solution *exactly*.
-If you find yourself getting it wrong several times, it may be a good
-idea to refresh the sample code and start over.
+# Customer support ticket analysis
+
+Not only does a customer support team receive tickets related to
+different business areas, but the inquiries also come through various
+channels, such as email, chat, and social media. The company wants to
+automatically extract key entities from customer support tickets to
+categorize and prioritize them appropriately to provide better support.
+Your job is to craft a few-shot prompt that helps them achieve that.
+
+You have three sample tickets (`ticket_1`, `ticket_2`, and `ticket_3`)
+and their corresponding entities (`entities_1`, `entities_2`, and
+`entities_3`) to inform the model what to look for and how to display
+it. You need the model to extract entities from the new `ticket_4`
+string.
+
+The `OpenAI` package, the `ticket_4` string, and the `get_response()`
+function have been pre-loaded for you. Also, you have access to the
+ticket and entity variables previously mentioned.
 
 **Instructions**
 
-- Complete the portions of the docstring that document the parameters.
-- Complete the portion of the docstring describing the return value.
-- Complete the example function usage in the docstring.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Craft a few-shot prompt that uses three tickets and corresponding
+  entities, to extract entities from the new ticket `ticket_4`.
 
 **Answer**
 
-# Using good function names
+```{python}
 
-A good function name can go a long way for both user and maintainer
-understanding. A good function name is descriptive and describes what a
-function does. In this exercise, you'll choose a name for a function
-that will help aid in its readability when used.
+```
+
+# Code generation with problem description
+
+You work as an analyst for a retail company and analyze monthly sales
+data. You need to develop a Python function that accepts a list of 12
+numbers representing sales for each month of the year and outputs the
+month with the highest sales value. This information will help your
+company identify the most profitable month. You feed the problem
+description to a language model to get help. You will then check the
+code to ensure it's correct for use.
+
+The `OpenAI` package and the `get_response()` function have been
+pre-loaded for you.
 
 **Instructions**
 
-- The `math` module has been pre-loaded into your environment to be able
-  to use its `sqrt` function.
-- Give function the best possible name from the following options:
-  `do_stuff`, `hypotenuse_length`,
-  `square_root_of_leg_a_squared_plus_leg_b_squared`,
-  `pythagorean_theorem`.
-- Complete the docstring's example with the function's name.
-- `print` the result of using the newly named function to find the
-  length of the hypotenuse for a right triangle with legs of length `6`
-  & `8`.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Craft a prompt that asks the model to write a Python function that
+  receives a list of 12 floats representing monthly sales data as input
+  and, returns the month with the highest sales value as output.
 
 **Answer**
 
-# Using good variable names
+```{python}
 
-Just like functions, descriptive variable names can make your code much
-more readable. In this exercise, you'll write some code using good
-variable naming practices.
+```
 
-There's not always a clear best name for a variable. The exercise has
-been written to try and make a clear *best* choice from the provided
-options.
+# Input-output examples for code generation
+
+You work as a project manager and need to estimate the time it will take
+to complete different projects. Your task is to develop a Python
+function that can predict the estimated completion time for a project
+based on historical data. You are given a set of examples in the
+`examples` string where different factors are associated with project
+completion time. Each example includes the factors' numerical values and
+the corresponding estimated completion time. You decide to prompt the
+language model to help you identify the underlying pattern that maps the
+inputs to the outputs and provides the code for the function. As always,
+you'll verify the correctness of the code before using it.
+
+The `OpenAI` package and the `get_response()` function have been
+pre-loaded for you.
 
 **Instructions**
 
-- Choose the best variable name to hold the sample of pupil diameter
-  measurements in millimeters from the following choices: `d`,
-  `diameter`, `pupil_diameter`, or `pupil_diameter_in_millimeters`.
-- Take the `mean` of the measurements and assign it to a variable.
-  Choose the best variable name to hold this mean from the following
-  options: `m`, `mean`, `mean_diameter`, or
-  `mean_pupil_diameter_in_millimeters`.
-- Print the resulting average pupil diameter.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Craft a prompt that asks the model to infer the Python function that
+  maps the inputs to the outputs in the provided `examples`.
 
 **Answer**
 
-# Refactoring for readability
+```{python}
 
-Refactoring longer functions into smaller units can help with both
-readability and modularity. In this exercise, you will refactor a
-function into smaller units. The function you will be refactoring is
-shown below. Note, in the exercise, you won't be using docstrings for
-the sake of space; in a real application, you should include
-documentation!
+```
 
-    def polygon_area(n_sides, side_len):
-        """Find the area of a regular polygon
+# Modifying code with multi-step prompts
 
-        :param n_sides: number of sides
-        :param side_len: length of polygon sides
-        :return: area of polygon
+You are a home improvement contractor specializing in flooring
+installations. You need to develop a Python function that calculates the
+area and perimeter of a rectangular floor in a room to help you
+determine the amount of flooring material required for the project.
 
-        >>> round(polygon_area(4, 5))
-        25
-        """
-        perimeter = n_sides * side_len
+You are given a string named `function`, which contains a starter
+function that calculates the area of a rectangular floor given its width
+and length. Using a multi-step prompt, you need to prompt the language
+model to modify this function to return the perimeter of the rectangle
+as well, and to test if the inputs (floor dimensions) are positive, and
+if not, display appropriate error messages.
 
-        apothem_denominator = 2 * math.tan(math.pi / n_sides)
-        apothem = side_len / apothem_denominator
-
-        return perimeter * apothem / 2
+The `OpenAI` package, the `function` string, and the `get_response()`
+function have been pre-loaded for you.
 
 **Instructions**
 
-- Move the logic for calculating the `perimeter` into the
-  `polygon_perimeter` function.
-- Complete the definition of the `polygon_apothem` function, by moving
-  the logic seen in the context. The `math` module has already been
-  imported for you.
-- Utilize the new unit functions to complete the definition of
-  `polygon_area`.
-- Use the more unitized `polygon_area` to calculate the area of a
-  regular hexagon with legs of size 10.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Craft a multi-step prompt that asks the model to modify the `function`
+  according to the specified requirements.
 
 **Answer**
 
-# Using doctest
+```{python}
 
-We just learned about doctest, which, if you're writing full docstrings
-with examples, is a simple way to minimally test your functions. In this
-exercise, you'll get some hands-on practice testing and debugging with
-doctest.
+```
 
-The following have all be pre-loaded in your environment: `doctest`,
-`Counter`, and `text_analyzer`.
+# Explaining code step by step
 
-Note that your docstring submission must match the solution *exactly*.
-If you find yourself getting it wrong several times, it may be a good
-idea to refresh the sample code and start over.
+As a financial analyst at a consulting firm, you're tasked with
+analyzing investment portfolios and providing insights to clients. While
+reviewing a set of financial data files, you come across a Python
+`function` that seems related to analyzing portfolios, but you're unsure
+of its exact purpose. You decide to use chain-of-thought prompting to
+let the language model decipher it step by step.
+
+The `OpenAI` package, the `function` string, and the `get_response()`
+function have been pre-loaded for you.
 
 **Instructions**
 
-- Complete the input code of the example in the docstring for
-  `sum_counters`.
-- Complete the docstring example by filling in the expected output.
-- Run the `testmod` function from `doctest` to test your function's
-  example code.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Craft a chain-of-thought prompt that asks the model to explain the
+  provided `function`.
 
 **Answer**
 
-# Using pytest
+```{python}
 
-`doctest` is a great tool, but it's not nearly as powerful as `pytest`.
-In this exercise, you'll write tests for your `SocialMedia` class using
-the `pytest` framework.
+```
 
-**InstructionsAnswer**
+# Creating a dual-prompt get_response() function
 
-# Documenting classes for Sphinx
+Since the majority of the following exercises will be based on calling
+the `chat.completions` endpoint of the OpenAI API with two prompts (a
+system prompt and a user prompt), in this exercise, you will create a
+dual-prompt `get_response()` function that receives two prompts as input
+(`system_prompt` and `user_prompt`) and returns the response as an
+output. You will then apply this function to any example of your choice.
+In future exercises, this function will be pre-loaded for you.
 
-`sphinx` is a great tool for rendering documentation as HTML. In this
-exercise, you'll write a docstring for a class that can be taken
-advantage of by `sphinx`.
-
-Note that your docstring submission must match the solution *exactly*.
-If you find yourself getting it wrong several times, it may be a good
-idea to refresh the sample code and start over.
+The `OpenAI` package has been pre-loaded for you.
 
 **Instructions**
 
-- `import` the `Document` class `from` the `text_analyzer` package for
-  use in the class definition.
-- Complete the line of the docstring dealing with the parameters of the
-  `__init__` method.
-- Complete the docstring by filling out the documentation for the
-  attributes or 'instance variables' of the `SocialMedia` class.
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Assign the role and content of each message in the `messages` list.
+- Try out the function by passing a `system_prompt` and a `user_prompt`
+  of your choice.
 
 **Answer**
+
+```{python}
+
+```
+
+# Customer support chatbot
+
+You are tasked with developing a customer support chatbot for an
+e-commerce company specializing in electronics. This chatbot will assist
+users with inquiries, order tracking, and troubleshooting common issues.
+You aim to create a system prompt that clearly defines the chatbot's
+purpose and provides response guidelines that set the tone for
+interactions and specify the intended audience. A sample user prompt is
+provided.
+
+The `OpenAI` package and the `get_response()` function have been
+pre-loaded for you.
+
+**Instructions**
+
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Write out who this chatbot is for and what it should do and save this
+  as the `chatbot_purpose`.
+- Define the target audience as tech-savvy individuals interested in
+  purchasing electronic gadgets and save to `audience_guidelines`.
+- Define the `tone_guidelines` that ask the chatbot to use a
+  professional and user-friendly tone while interacting with customers.
+
+**Answer**
+
+```{python}
+
+```
+
+# Behavioral control of a customer support chatbot
+
+When the company started using your chatbot from the previous exercise,
+they realized they wanted it to behave differently. They'd like to
+incorporate two behavioral conditions. First, they want to refine the
+customer support chatbot's interactions by asking for an order number if
+the user is inquiring about an order without providing one. Second, they
+want the model to express empathy by starting the response with "I'm
+sorry to hear about your issue with …" if the user reports a technical
+issue.
+
+They've assigned this update to you. You need to append these conditions
+to the `base_system_prompt` that represents the prompt you engineered in
+the previous exercise and obtain a `refined_system_prompt`. You will
+test the chatbot on two queries.
+
+The `OpenAI` package, the `base_system_prompt` string developed in the
+previous exercise, and the `get_response()` function have been
+pre-loaded for you.
+
+**Instructions**
+
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Ask the user for their order number if they submitted a query about an
+  order without specifying an order number; save this to
+  `order_number_condition`.
+- Define a `technical_issue_condition` where you tell the model to start
+  the response with `I'm sorry to hear about your issue with ...` if the
+  user is reporting a technical issue.
+- Create the `refined_system_prompt` that combines the
+  `base_system_prompt` and the two new conditions.
+
+**Answer**
+
+```{python}
+
+```
+
+# Learning advisor chatbot
+
+You are developing a personalized learning advisor chatbot that
+recommends textbooks for users. The chatbot's role is to receive queries
+from learners about their background, experience, and goals, and
+accordingly, recommends a learning path of textbooks, including both
+beginner-level and more advanced options. Your job is to create a
+role-playing `system_prompt` for the textbook recommendation chatbot,
+highlighting what it is expected to do while interacting with the users.
+
+The `OpenAI` package, and the `get_response()` function have been
+pre-loaded for you.
+
+**Instructions**
+
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Define a role-playing `system_prompt` that tells the bot to act as a
+  learning advisor who can interpret learner queries as described and
+  provide the relevant textbook recommendations.
+
+**Answer**
+
+```{python}
+
+```
+
+# Adding guidelines for the learning advisor chatbot
+
+In the previous exercise, you built a chatbot to recommend textbooks.
+However, the company has identified a need for an update to ensure more
+efficient recommendations. You are provided with a `base_system_prompt`,
+similar to the one you created previously, and your task is to
+incorporate `behavior_guidelines` and `response_guidelines`. These
+guidelines will help control the chatbot's behavior and ensure it offers
+more effective and tailored textbook recommendations to users.
+
+The `OpenAI` package, and the `get_response()` function have been
+pre-loaded for you.
+
+**Instructions**
+
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Define `behavior_guidelines` for the chatbot that allow it to ask a
+  user about their background, experience, and goals, whenever any of
+  these is not provided in the prompt.
+- Define `response_guidelines` to tell the chatbot to recommend no more
+  than three textbooks.
+
+**Answer**
+
+```{python}
+
+```
+
+# Providing context through sample conversations
+
+Suppose there is a delivery service named **MyPersonalDelivery** that
+offers a wide range of delivery options for various items. You want to
+create a customer service chatbot that supports customers with whatever
+they need. To accomplish this, you will provide a `context_question` and
+a `context_answer` about items the company delivers via previous
+conversations, and you will test if the model recognizes this context
+through a new user prompt.
+
+The `OpenAI` package, the `context_question` and `context_answer`
+strings have been pre-loaded for you.
+
+**Instructions**
+
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Define a `system_prompt` that defines the purpose of the chatbot and
+  guides it to answer queries in a gentle way.
+- Use the `system_prompt`, the `context_question`, and `context_answer`
+  to formulate a conversation that the chatbot can use as context in
+  order to respond to the new user query.
+
+**Answer**
+
+```{python}
+
+```
+
+# Providing context through system prompt
+
+Now you want to use system prompts in order to provide context for the
+chatbot about **MyPersonalDelivery** instead of relying on sample
+conversations. You are provided with a detailed `service_description`
+that introduces the services being offered and the benefits of choosing
+this service. You will then test a user query to see if the model
+recognizes the context effectively.
+
+The `OpenAI` package and the `service_description` string have been
+pre-loaded for you.
+
+**Instructions**
+
+- Set your API key to `api_key` within the `OpenAI()` class.
+- Define a `system_prompt` that defines the purpose of the chatbot
+  including the `service_description`, and guides it to answer queries
+  in a gentle way.
+- Get the response using the `get_response()` function.
+
+**Answer**
+
+```{python}
+
+```
