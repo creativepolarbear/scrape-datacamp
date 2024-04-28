@@ -8,7 +8,7 @@ Rscript scrape.R
 # Convert HTML to Rmarkdown
 
 ``` sh
-pandoc --from html-native_divs-native_spans scrape.html --to gfm -o notebook.Rmd --no-highlight
+pandoc --from html-native_divs-native_spans scrape.html --to gfm -o notebook.md --no-highlight
 ```
 
 # Convert Rmarkdown to Jupyter Notebook
